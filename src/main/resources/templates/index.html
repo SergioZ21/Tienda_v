@@ -6,25 +6,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Bienvenido</h1>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Telefono</th>
-                    <th>Correo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="cliente : ${clientes}">
-                    <td th:text="${cliente.nombre}"></td>
-                    <td th:text="${cliente.apellidos}"></td>
-                    <td th:text="${cliente.telefono}"></td>
-                    <td th:text="${cliente.correo}"></td>
-                </tr>
-            </tbody>
-        </table>
+        <h1>Listado de Clientes</h1>
+        <a th:href="@{/nuevoCliente}">Nuevo Cliente</a>
+        <div th:if="${clientes != null and !clientes.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cliente : ${clientes}">
+                        <td th:text="${cliente.nombre}"></td>
+                        <td th:text="${cliente.apellidos}"></td>
+                        <td th:text="${cliente.telefono}"></td>
+                        <td th:text="${cliente.correo}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+                <div th:if="${clientes == null or clientes.empty}">
+                    No tenemos lista que mostrar...
+                    
+                </div>
 
         
      

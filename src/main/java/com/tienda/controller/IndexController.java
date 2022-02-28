@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import com.tienda.dao.ClienteDao;
+import com.tienda.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -15,14 +16,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class IndexController {
 
     @Autowired
-    private ClienteDao clienteDao;
+    private ClienteService clienteService;
     
     @GetMapping("/")
     public String inicio(Model model){
         log.info("Ahora estamos con arquitectura mvc");
         
         
-        var clientes= clienteDao.findAll();
+        var clientes= clienteService.getClientes();
         model.addAttribute("clientes",clientes);
         return "index";
         
