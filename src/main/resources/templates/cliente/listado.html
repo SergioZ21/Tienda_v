@@ -7,7 +7,7 @@
         <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace="layout/plantilla :: header"/>
+        <header th:replace="layouts/plantilla :: header"/>
         <div class="contenido">
         <h1>Listado de Clientes</h1>
         <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
@@ -30,7 +30,7 @@
                         <td th:text="${cliente.apellidos}"></td>
                         <td th:text="${cliente.telefono}"></td>
                         <td th:text="${cliente.correo}"></td>
-                        <td th:text="${#numbers.formatDecimal (cliente.credito.limite,3,2}"style="text-align: right"></td>
+                        <td th:text="${#numbers.formatDecimal (cliente.credito.limite,3,2)}"style="text-align: right"></td>
                         <td><a th:href="@{/cliente/modificar} + ${cliente.idCliente}">Modificar</a></td>
                         <td><a th:href="@{/cliente/eliminar} + ${cliente.idCliente}">Eliminar</a></td>
                     </tr>
@@ -43,6 +43,6 @@
                 </div>
 
         
-     
+     <footer th:replace="layouts/plantilla :: footer"/>
     </body>
 </html>

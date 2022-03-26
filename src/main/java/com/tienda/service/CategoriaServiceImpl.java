@@ -18,7 +18,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     @Transactional
     public List<Categoria> getCategorias(boolean activos){
         var lista= (List<Categoria>) clienteDao.findAll();
-        if (activos) {lista.removeIf(e -> e.isActiva()); }
+        if (activos) {lista.removeIf(e -> !e.isActivo()); }
        
         return lista;
         

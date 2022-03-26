@@ -8,7 +8,7 @@
         <link href="css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace="layout/plantilla :: header"/>
+        <header th:replace="layouts/plantilla :: header"/>
         <div class="contenido">
         <h1>Datos de Cliente</h1>
         <a th:href="@{/cliente/listado}">Regresar</a>
@@ -39,6 +39,6 @@
         
 
         
-     
+     <footer th:replace="layouts/plantilla :: footer"/>
     </body>
 </html>
