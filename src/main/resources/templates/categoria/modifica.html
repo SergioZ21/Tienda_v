@@ -10,19 +10,19 @@
                 <body>
                     <header th:replace="layouts/plantilla :: header"/>
                     <div class="contenido">
-                        <h1>Datos de Categoria</h1>
-                        <a th:href="@{/categoria/listado}">Regresar</a>
+                        <h1 th:text="#{categoria.}">Datos de Categoria</h1>
+                        <a th:href="@{/categoria/listado}" th:text="#{categoria.}">Regresar</a>
                         <br/>
                         <form th:action="@{/categoria/guardar}" method= "post"
                               th:object="${categoria}">
                             <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
-                            <label for="descripcion">Descripcion:</label>
+                            <label for="descripcion" th:text="#{categoria.descripcion}">Descripcion:</label>
                             <input type="text" name="descripcion" th:field="*{descripcion}"/>
                             <br/>
-                            <label for="activo">Activo</label>
+                            <label for="activo" th:text="#{categoria.activo}">Activo</label>
                             <input type="checkbox" name="activo" th:field="*{activo}"/>
                             <br/><br/>
-                            <input type="submit" name="guardar" value="Guardar"/>
+                            <button type="submit" name="guardar" th:text="#{accion.guardar}"/>
 
 
 

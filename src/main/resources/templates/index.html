@@ -9,15 +9,15 @@
     <body>
         <header th:replace="layouts/plantilla :: header"/>
         <div class="contenido">
-            <h1>Nuestros Articulos</h1>
+            <h1 th:text="#{index.titulo}">Nuestros Articulos</h1>
            
             <div th:if="${articulos != null and !articulos.empty}">
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>Descripcion</th>
-                            <th>Precio</th>
-                            <th>Comprar</th>
+                            <th th:text="#{index.descripcion}">Descripcion</th>
+                            <th th:text="#{index.precio}">Precio</th>
+                            <th th:text="#{index.comprar}">Comprar</th>
                       
                         </tr>
                     </thead>
@@ -26,12 +26,12 @@
                             <td th:text="${articulo.descripcion}"></td>
                             <td th:text="${articulo.precio}"></td>
   
-                            <td><a th:href="@{/carrito/agregar} + ${articulo.idArticulo}">Agregar</a></td>
+                            <td><a th:href="@{/carrito/agregar} + ${articulo.idArticulo}" th:text="#{accion.agregar}">Agregar</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div th:if="${articulos == null or articulos.empty}">
+            <div th:if="${articulos == null or articulos.empty}" th:text="#{articulo.no_mostrar}">
                 No tenemos lista que mostrar...
 
             </div>
